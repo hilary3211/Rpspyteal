@@ -13,13 +13,9 @@ module.exports = {
     ],
   },
 
-  output: {
-    path: path.resolve(__dirname, 'build'),
-    publicPath: '/',
-    filename: 'bundle.js'
-  },
-  devServer: {
-    contentBase: "./build",
+   output: {
+    path: path.resolve(__dirname, "build"),
+    filename: "app.[hash].js",
   },
   plugins: [new HtmlWebpackPlugin()],
 };
