@@ -21,7 +21,5 @@ module.exports = {
   devServer: {
     contentBase: "./build",
   },
-  plugins: [new HtmlWebpackPlugin({
-      template: path.resolve('./index.html'),
-    }),],
+  plugins: [new HtmlWebpackPlugin()],
 };
