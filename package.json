@@ -21,7 +21,6 @@
     "bignumber.js": "^9.1.1",
     "bootstrap": "^5.2.3",
     "bootstrap-icons": "^1.10.4",
-    "crypto-browserify": "^3.12.0",
     "gh-pages": "^5.0.0",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
@@ -37,7 +36,7 @@
   },
   "scripts": {
     "start": "react-app-rewired start",
-    "build": "webpack --mode production",
+    "build": "react-app-rewired build",
     "test": "react-app-rewired test",
     "eject": "react-scripts eject"
   },
@@ -62,6 +61,7 @@
   "devDependencies": {
     "assert": "^2.0.0",
     "buffer": "^6.0.3",
+    "crypto-browserify": "^3.12.0",
     "gh-pages": "^4.0.0",
     "html-webpack-plugin": "^5.5.1",
     "https-browserify": "^1.0.0",
@@ -72,6 +72,7 @@
     "stream-browserify": "^3.0.0",
     "stream-http": "^3.2.0",
     "url": "^0.11.0",
+    "webpack": "^5.81.0",
     "webpack-cli": "^5.0.2",
     "webpack-dev-server": "^4.13.3"
   }
