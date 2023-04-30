@@ -37,7 +37,7 @@
   },
   "scripts": {
     "start": "react-app-rewired start",
-    "build": "webpack --mode production",
+    "build": "webpack --mode production build",
     "test": "react-app-rewired test",
     "eject": "react-scripts eject"
   },
