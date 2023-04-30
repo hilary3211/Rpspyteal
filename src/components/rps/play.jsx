@@ -5,7 +5,7 @@ import {NotificationError, NotificationSuccess} from "../utils/Notifications";
 import PropTypes from "prop-types";
 import {Button} from "react-bootstrap";
 import { TextBoxComponent } from '@syncfusion/ej2-react-inputs';
-import {play,p1wins,p2wins,draws,reveal} from "../../utils/rpsgame";
+import {play,p1wins,p2wins,draws,reveal,sum_array} from "../../utils/rpsgame";
 
 import {useWallet} from "@txnlab/use-wallet";
 import {useNavigate} from 'react-router-dom';
@@ -19,6 +19,7 @@ const Playreveal = ({address, fetchBalance, appid}) => {
 
     useEffect(() => {
         fetchBalance(address)
+        localStorage.setItem("sum", sum_array[0])
     })
     
 
@@ -52,7 +53,7 @@ const Playreveal = ({address, fetchBalance, appid}) => {
                     }}
                     variant='dark'
                     className="rounded-pill px-0"
-                    disabled = {localStorage.getItem("sum") >= 3 }
+                    disabled = {localStorage.getItem("sum") >= 2 }
                     style={{ margin: "10px auto", width: "10%"}}>
                         play
             </Button>
@@ -64,10 +65,10 @@ const Playreveal = ({address, fetchBalance, appid}) => {
                     onClick={() => {
                         reveal(address,signer, appid)
                             .then(() => {
-                                let sum = p1wins + p2wins + draws
+                                //let sum = p1wins + p2wins + draws
                                 toast(<NotificationSuccess text=" Reavel successful"/>);
                                 fetchBalance(address);
-                                localStorage.setItem("sum", sum)
+                                //localStorage.setItem("sum", sum)
                             })
                             .catch(error => {
                                 console.log(error);
@@ -78,7 +79,7 @@ const Playreveal = ({address, fetchBalance, appid}) => {
                     }}
                     variant='dark'
                     className="rounded-pill px-0"
-                    disabled = {localStorage.getItem("sum") >= 3 }
+                    disabled = {localStorage.getItem("sum") >= 2 }
                     style={{ margin: "10px auto", width: "10%"}}>
                         Reveal winner
             </Button>
@@ -91,7 +92,7 @@ const Playreveal = ({address, fetchBalance, appid}) => {
                     }}
                     variant='dark'
                     className="rounded-pill px-0"
-                    disabled = {localStorage.getItem("sum") < 3 }
+                    disabled = {localStorage.getItem("sum") < 2 }
                     style={{ margin: "10px auto", width: "10%"}}>
                         Restart
             </Button>

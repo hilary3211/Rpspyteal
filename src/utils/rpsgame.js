@@ -20,6 +20,8 @@ export let p1wins = 0
 export let p2wins = 0
 export let draws = 0
 export const addrs = []
+export let sum_array = []
+
 const compileProgram = async (programSource) => {
     let encoder = new TextEncoder();
     let programBytes = encoder.encode(programSource);
@@ -189,7 +191,7 @@ export const play = async(senderAddress,game,signTxn, appid) => {
     addresses.length = 0
     const atc = new algosdk.AtomicTransactionComposer();
     let play = utf8ToBase64String(moves[game.move])
-
+    
     atc.addMethodCall({
         appID: +appid,
         method: contract.getMethodByName('play'),
@@ -229,9 +231,8 @@ export const reveal = async(senderAddress,signTxn,appid) => {
     params.fee = algosdk.ALGORAND_MIN_TX_FEE;
     params.flatFee = true;
     const atc = new algosdk.AtomicTransactionComposer();
-    let sum = p1wins + p2wins + draws
     let ingame = []
-
+    let sum = p1wins + p2wins + draws
     atc.addMethodCall({
         appID: +appid,
         method: contract.getMethodByName('rw'),
@@ -256,6 +257,7 @@ export const reveal = async(senderAddress,signTxn,appid) => {
     
     if (ingame[0] === 0n && sum < 3 ){
         console.log('round ended in a draw')
+
         draws += 1
     }else if(ingame[0] === 1n && sum < 3 ){
         console.log('Player1 wins this round')
@@ -264,5 +266,8 @@ export const reveal = async(senderAddress,signTxn,appid) => {
         console.log('Player2 wins this round')
         p2wins += 1
     }
+    sum_array[0] = sum
+    //sum_array.push(sum)
+    console.log(sum)
 }
 

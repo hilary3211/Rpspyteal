@@ -68,6 +68,7 @@ const Challenge = ({address, fetchBalance, appid}) => {
                 Get Appid
             </Button>
             </div>
+            <p>Click on Get App id to get new appid</p>
         </div>    
     );
 };
