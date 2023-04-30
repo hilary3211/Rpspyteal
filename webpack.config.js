@@ -1,8 +1,8 @@
 const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin")
 
 module.exports = {
-  mode: "development",
+  mode: "production",
   entry: "./src/utils/rpsgame.js",
   module: {
     rules: [
@@ -12,9 +12,16 @@ module.exports = {
       },
     ],
   },
+
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "app.[fullhash].js",
+    path: path.resolve(__dirname, 'build'),
+    publicPath: '/',
+    filename: 'bundle.js'
   },
-  plugins: [new HtmlWebpackPlugin()],
+  devServer: {
+    contentBase: "./build",
+  },
+  plugins: [new HtmlWebpackPlugin({
+      template: path.resolve('./index.html'),
+    }),],
 };

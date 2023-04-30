@@ -36,13 +36,10 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-     "dev": "yarn start",
     "start": "react-app-rewired start",
-    "build": "react-app-rewired build && cp build/index.html build/404.html",
+    "build": "webpack --mode production",
     "test": "react-app-rewired test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
@@ -66,6 +63,7 @@
     "assert": "^2.0.0",
     "buffer": "^6.0.3",
     "gh-pages": "^4.0.0",
+    "html-webpack-plugin": "^5.5.1",
     "https-browserify": "^1.0.0",
     "os-browserify": "^0.3.0",
     "process": "^0.11.10",
@@ -74,6 +72,7 @@
     "stream-browserify": "^3.0.0",
     "stream-http": "^3.2.0",
     "url": "^0.11.0",
-    "webpack-cli": "^5.0.2"
+    "webpack-cli": "^5.0.2",
+    "webpack-dev-server": "^4.13.3"
   }
 }
