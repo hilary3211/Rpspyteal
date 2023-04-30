@@ -13,12 +13,10 @@ const Challenge = ({address, fetchBalance, appid}) => {
     const [wager, setwager] = useState(0);
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate()
-
-    const {signer} = useWallet();
+    const {signer} = useWallet()
     useEffect(() => {
         fetchBalance(address)
     })
-    
     if (loading) {
 	    return <Loader/>;
 	}
