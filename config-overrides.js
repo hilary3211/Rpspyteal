@@ -46,14 +46,5 @@ module.exports = function override(config) {
     
     )
     return config;
-    
-    output: {
-    path: path.resolve(__dirname, 'build'),
-    publicPath: '/',
-    filename: 'bundle.js'
-  },
-  devServer: {
-    contentBase: "./build",
-  },
-  plugins: [new HtmlWebpackPlugin({ template: './index.html' })],
+   
 }
