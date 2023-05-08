@@ -11,3 +11,5 @@ Install all dependencies : `npm install`
 
 Step 3 
 Run application : `npm start`
+
+Deployed app: https://rpspyteal-6knw.vercel.app/
